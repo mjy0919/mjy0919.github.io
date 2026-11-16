@@ -208,14 +208,11 @@
     .portrait-spark { position:absolute; color:#c6a3d7; line-height:1; pointer-events:none; }
     .spark-one { font-size:22px; top:-9px; right:9px; }
     .spark-two { font-size:16px; bottom:22px; left:-10px; color:#dfb77e; }
-    .cat-float { transform-origin:40px 65px; }
-    .cat-eyes { transform-box:fill-box; transform-origin:center; }
-    html:not([data-motion="off"]) .cat-float { animation:cat-float 5s ease-in-out infinite; }
-    html:not([data-motion="off"]) .cat-eyes { animation:cat-blink 7s ease-in-out infinite; }
+    .crown-float { transform-origin:40px 65px; }
+    html:not([data-motion="off"]) .crown-float { animation:crown-float 5s ease-in-out infinite; }
     html:not([data-motion="off"]) .portrait-spark { animation:soft-spark 4.5s ease-in-out infinite; }
     html:not([data-motion="off"]) .spark-two { animation-delay:-2s; }
-    @keyframes cat-float { 0%,100% { transform:translateY(0) rotate(-2deg); } 50% { transform:translateY(-4px) rotate(1deg); } }
-    @keyframes cat-blink { 0%,43%,47%,100% { transform:scaleY(1); } 45% { transform:scaleY(.12); } }
+    @keyframes crown-float { 0%,100% { transform:translateY(0) rotate(-2deg); } 50% { transform:translateY(-4px) rotate(1deg); } }
     @keyframes soft-spark { 0%,100% { opacity:.55; transform:scale(.92); } 50% { opacity:1; transform:scale(1.06); } }
     .profile .personal-meta { display:grid; gap:4px; margin-top:12px; font-size:12px; line-height:1.7; color:var(--muted); }
     .birthday { display:flex; align-items:center; gap:5px; font-variant-numeric:tabular-nums; }
@@ -237,6 +234,13 @@
     @media(max-width:570px) { .profile .personal-meta { font-size:11px; gap:2px; } .birthday img { width:19px; height:19px; } .about .direction-note { padding:12px 14px; font-size:13px; } }
     @media(prefers-reduced-motion:reduce) { *,*::before,*::after { animation:none!important; transition:none!important; scroll-behavior:auto!important; } }
     @media print { body { background:#fff; } .profile-mascot,.portrait-spark,.motion-toggle { display:none; } .portrait-wrap { float:right; width:100px; height:100px; } }
+
+    .paper-badges { display:flex; flex-wrap:wrap; align-items:center; gap:5px; margin:6px 0 10px; }
+    .paper-badge { display:inline-flex; align-items:center; padding:1px 7px; border:1px solid transparent; border-radius:5px; font-size:10px; font-weight:600; line-height:1.7; letter-spacing:.015em; }
+    .paper-badge.rank { background:#eee9f6; color:#756091; border-color:#e5daef; }
+    .paper-badge.top { background:#fcf1dc; color:#98723d; border-color:#f2e5c8; }
+    .paper-badge.ccf { background:#e8f0fa; color:#51739c; border-color:#d9e6f5; }
+    .submission .paper-badges { margin:8px 0 0; }
   </style>
 </head>
 <body>
@@ -254,10 +258,10 @@
   </header>
   <main class="layout" id="content">
     <aside class="profile" aria-label="个人信息" data-en-aria-label="Profile">
-      <div class="portrait-wrap"><img class="portrait" src="assets/portrait.jpg" alt="茅谨怡的个人照片" data-en-alt="Portrait of Jinyi Mao" width="196" height="196"><svg class="profile-mascot" viewBox="0 0 78 80" aria-hidden="true" focusable="false"><ellipse cx="41" cy="73" rx="22" ry="4" fill="#C7BEDD" opacity=".22"/><g class="cat-float" stroke="#8C7DA1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M57 57q16-8 12 5-1 5-11 4" fill="#FFF9EE"/><path d="M22 43q-6 12-3 24 19 8 39 0 3-15-4-25Z" fill="#FFFDFA"/><path d="M15 31 14 10 31 21q9-3 18 0L65 10l-1 23q4 25-25 25T15 31Z" fill="#FFFDFA"/><path d="m19 17 1 13 8-6M60 17l-1 13-7-6" fill="#F3CEDA" stroke="none"/><g class="cat-eyes" fill="#786A91" stroke="none"><ellipse cx="29" cy="37" rx="2" ry="3"/><ellipse cx="49" cy="37" rx="2" ry="3"/></g><ellipse cx="23" cy="44" rx="5" ry="2.5" fill="#F7DCE4" stroke="none"/><ellipse cx="55" cy="44" rx="5" ry="2.5" fill="#F7DCE4" stroke="none"/><path d="m37 41 2 2 2-2M39 43q-4 6-7 1M39 43q4 6 7 1" fill="none"/><path d="M26 60v8M49 60v8"/><path d="m39 53 3 5 6 1-4 4 1 6-6-3-5 3 1-6-4-4 6-1Z" fill="#F7D68F" stroke="#BA9859" stroke-width="1.3"/></g></svg><span class="portrait-spark spark-one" aria-hidden="true">✦</span><span class="portrait-spark spark-two" aria-hidden="true">✧</span></div>
+      <div class="portrait-wrap"><img class="portrait" src="assets/portrait.jpg" alt="茅谨怡的个人照片" data-en-alt="Portrait of Jinyi Mao" width="196" height="196"><svg class="profile-mascot" viewBox="0 0 78 80" aria-hidden="true" focusable="false"><defs><linearGradient id="crown-lilac" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#E5D7FA"/><stop offset="1" stop-color="#BBA0E0"/></linearGradient></defs><ellipse cx="40" cy="71" rx="23" ry="4" fill="#C7BEDD" opacity=".18"/><g class="crown-float" stroke-linecap="round" stroke-linejoin="round"><path d="m12 29 14 11 13-22 13 22 14-11-6 30H18Z" stroke="#FFFDFF" stroke-width="9" fill="#FFFDFF"/><rect x="17" y="55" width="44" height="10" rx="5" stroke="#FFFDFF" stroke-width="8" fill="#FFFDFF"/><path d="m12 29 14 11 13-22 13 22 14-11-6 30H18Z" fill="url(#crown-lilac)" stroke="#9477BC" stroke-width="1.8"/><path d="m21 43 2 10M39 31v8M57 43l-2 10" stroke="#F6EEFF" stroke-width="2.5"/><rect x="17" y="55" width="44" height="10" rx="5" fill="#D4BDEA" stroke="#9477BC" stroke-width="1.8"/><path d="M24 59h30" stroke="#F3E9FC" stroke-width="1.5"/><g fill="#F7DEE9" stroke="#B792BC" stroke-width="1.5"><circle cx="12" cy="27" r="4"/><circle cx="39" cy="16" r="4.5"/><circle cx="66" cy="27" r="4"/></g><path d="m39 40 5 7-5 6-5-6Z" fill="#FFF3C9" stroke="#BCA06D" stroke-width="1.3"/><path d="m65 9 1.7 4.3L71 15l-4.3 1.7L65 21l-1.7-4.3L59 15l4.3-1.7Z" fill="#D7BEEB"/><circle cx="9" cy="51" r="2" fill="#DDC7EE"/></g></svg><span class="portrait-spark spark-one" aria-hidden="true">✦</span><span class="portrait-spark spark-two" aria-hidden="true">✧</span></div>
       <h1>茅谨怡<span class="english-name">Jinyi Mao</span></h1>
       <p class="affiliation">南京大学 · Nanjing University</p>
-      <p class="detail" data-en="School of Management and Engineering&lt;br&gt;Master’s student · Industrial Engineering and Management">工程管理学院<br>工业工程与管理 · 硕士研究生</p>
+      <p class="detail" data-en="Master’s student · Industrial Engineering and Management">工业工程与管理 · 硕士研究生</p>
       <div class="personal-meta"><span data-en="Hometown: Nanjing, Jiangsu">籍贯：江苏南京</span><span class="birthday"><img src="assets/icons/cake.svg" width="22" height="22" alt="出生年月" data-en-alt="Birth month and year"><span>2002.09</span></span></div>
       <p class="focus" data-en="Research interests&lt;br&gt;LLM Agents · Retrieval-Augmented Generation&lt;br&gt;Multisource Spatiotemporal Modeling · Intelligent Transportation">研究方向<br>大模型 Agent · 检索增强生成<br>多源时空建模 · 交通智能</p>
       <a class="email" href="mailto:mjy0209@126.com">mjy0209@126.com</a>
@@ -267,7 +271,7 @@
         <h2 id="about-title"><img class="section-icon" src="assets/icons/about.svg" alt="" aria-hidden="true" width="44" height="44"><span class="heading-copy" data-en="About Me">关于我 <span>About Me</span></span></h2>
         <p data-en="Hello, I’m &lt;strong&gt;Jinyi Mao&lt;/strong&gt;, a master’s student in Industrial Engineering and Management at Nanjing University, expecting to graduate in June 2028. I earned my bachelor’s degree in Intelligent Manufacturing Engineering at Yangzhou University, ranking first in my major and receiving recommended admission to graduate study.">你好，我是<strong>茅谨怡</strong>，目前在南京大学攻读工业工程与管理专业硕士学位，预计于 2028 年 6 月毕业。本科就读于扬州大学智能制造工程专业，以专业第一的成绩获得推免资格。</p>
         <p data-en="My interests lie in &lt;strong&gt;LLM agents, retrieval-augmented generation and multisource spatiotemporal modeling&lt;/strong&gt;, connecting algorithmic research with interactive applications. My work spans in-vehicle voice agents, source-grounded question answering, traffic risk prediction, signal timing estimation and flight data modeling.">我关注<strong>大模型 Agent、检索增强生成与多源时空建模</strong>，希望将算法研究与可交互的应用结合起来。目前的工作包括车载多轮语音 Agent、可溯源问答系统，以及交通风险预测、信号配时估计和飞行数据建模。</p>
-        <p class="direction-note" data-en="I hope to keep growing in &lt;strong&gt;product ideas and value propositions&lt;/strong&gt;, &lt;strong&gt;AI engineering and implementation&lt;/strong&gt;, and &lt;strong&gt;project management for reliable delivery&lt;/strong&gt;, while finding the direction I want to pursue long term.">希望在<strong>产品创意与卖点提炼</strong>、<strong>AI Engineering 技术落地</strong>、<strong>项目管理与流程化交付</strong>三个方面持续积累，找到适合长期投入的方向。</p>
+        <p class="direction-note" data-en="I hope to keep growing in &lt;strong&gt;product ideas (value propositions) + AI engineering (technical implementation) + management (improving quality through development pipelines and high-standard reviews)&lt;/strong&gt;, while finding the direction I want to pursue long term.">希望在<strong>产品 idea（卖点） + AI Engineering（技术落地） + 管理（通过研发管线和高标准评审提升成果质量）</strong>三个方面持续积累，找到适合长期投入的方向。</p>
       </section>
       <section id="education" aria-labelledby="education-title">
 <h2 id="education-title"><img class="section-icon" src="assets/icons/education.svg" alt="" aria-hidden="true" width="44" height="44"><span class="heading-copy" data-en="Education">教育背景 <span>Education</span></span></h2>
@@ -338,6 +342,7 @@
           </figure>
           <div>
             <p class="venue">IEEE TAES · 2025</p>
+            <div class="paper-badges"><span class="paper-badge rank" data-en="SCI · CAS Tier 2">SCI 二区</span><span class="paper-badge top">TOP</span></div>
             <h3 class="paper-title"><a href="https://doi.org/10.1109/TAES.2025.3596574" target="_blank" rel="noopener noreferrer">Two-Layer Fusion Multistep Flight Safety Parameter Prediction and Early Warning Strategy Based on QAR Parameters</a></h3>
             <p class="authors">Jian Chen, <strong>Jinyi Mao</strong>, Cunhao Lu</p>
             <p class="description" data-en="Combines LSTM, Transformer and TCN models with dynamic weighting at the feature and prediction levels for multistep forecasting of QAR flight parameters. Sliding-window fluctuations inform a tiered early-warning strategy.">基于 QAR 飞行数据，并行融合 LSTM、Transformer 与 TCN，在特征层和预测层动态分配权重，实现关键飞行参数的多步预测，并结合滑动窗口波动构建分级预警策略。</p>
@@ -351,6 +356,7 @@
           </figure>
           <div>
             <p class="venue">Aerospace Science and Technology · 2025</p>
+            <div class="paper-badges"><span class="paper-badge rank" data-en="SCI · CAS Tier 1">SCI 一区</span><span class="paper-badge top">TOP</span></div>
             <h3 class="paper-title"><a href="https://doi.org/10.1016/j.ast.2025.110251" target="_blank" rel="noopener noreferrer">Optimization strategy for ensemble learning models based on fusing resampling, adaptive dimensionality reduction, and Optuna in intelligent flight technology evaluation</a></h3>
             <p class="authors"><strong>Jinyi Mao</strong>, Jian Chen, Yaoji Deng</p>
             <p class="description" data-en="An ensemble-learning pipeline for flight skill evaluation, integrating resampling, sequential feature selection with adaptive dimensionality reduction (SFS-ADR), and Optuna optimization. SHAP explains how key flight parameters contribute to the ratings.">面向飞行技术评级，将重采样、逐步特征选择与自适应降维（SFS-ADR）、Optuna 调参整合为集成学习优化流程，并使用 SHAP 解释关键飞行参数对评级结果的贡献。</p>
@@ -363,10 +369,12 @@
         <article class="submission">
           <h3>Probabilistic modeling of traffic accident risk under context-dependent distributional heterogeneity: A hurdle mixture-of-distribution-experts approach</h3>
           <p data-en="Under review · Transportation Research Part B: Methodological">在投 · Transportation Research Part B: Methodological</p>
+          <div class="paper-badges"><span class="paper-badge rank" data-en="SCI · CAS Tier 1">SCI 一区</span><span class="paper-badge top">TOP</span></div>
         </article>
         <article class="submission">
           <h3>Self-supervised dynamic signal timing estimation from sparse probe vehicle data: A deep traffic structural prior approach</h3>
           <p data-en="Under review · IEEE Transactions on Intelligent Transportation Systems">在投 · IEEE Transactions on Intelligent Transportation Systems</p>
+          <div class="paper-badges"><span class="paper-badge rank" data-en="SCI · CAS Tier 1">SCI 一区</span><span class="paper-badge top">TOP</span><span class="paper-badge ccf">CCF B</span></div>
         </article>
       </section>
       <section id="awards" aria-labelledby="awards-title">
