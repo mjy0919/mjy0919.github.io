@@ -105,134 +105,260 @@
     }
     @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
     @media print { header,.links,.caption,dialog { display:none; } .layout { display:block; padding:0; max-width:none; } .profile { position:static; margin-bottom:25px; } .portrait { float:right; width:100px; height:100px; } .profile h1 { margin:0; } .focus { margin:8px 0; } section { break-inside:avoid; } .entry { break-inside:avoid; } }
+
+    /* Bilingual academic profile and institutional identities. */
+    :root { --blue:#155b94; --soft:#f7f9fc; }
+    .nav { gap:24px; }
+    .home { white-space:nowrap; }
+    .nav-links { gap:20px; }
+    .nav-actions { display:flex; align-items:center; gap:19px; }
+    .language-switch { display:flex; align-items:center; padding:3px; background:#f0f4f8; border-radius:7px; flex-shrink:0; }
+    .language-switch button { border:0; background:transparent; color:var(--muted); padding:3px 10px; font-size:12px; line-height:1.8; border-radius:4px; cursor:pointer; }
+    .language-switch button[aria-pressed="true"] { background:white; color:var(--blue); box-shadow:0 1px 4px #20344f14; font-weight:650; }
+    .profile { padding-top:4px; }
+    .portrait { border-radius:12px; }
+    .profile .affiliation { margin-top:18px; }
+    .focus { padding-top:15px; border-top:1px solid var(--line); }
+    section { margin-bottom:43px; }
+    h2 { border-bottom:0; position:relative; padding-bottom:13px; margin-bottom:24px; }
+    h2:after { content:""; position:absolute; bottom:0; left:0; width:100%; height:1px; background:linear-gradient(to right,#9ab5cd 0,#e4e9ef 80%); }
+    .visual { transition:box-shadow .2s,border-color .2s; }
+    .visual:hover { border-color:#a5bdd3; box-shadow:0 4px 16px #2432470c; }
+    .links a { display:inline-flex; align-items:center; }
+    .institution-row { display:grid; grid-template-columns:132px minmax(0,1fr); gap:24px; align-items:center; padding:5px 0 23px; margin-bottom:19px; border-bottom:1px solid var(--line); }
+    .institution-row:last-child { border-bottom:0; padding-bottom:0; margin-bottom:0; }
+    .brand-box { display:flex; align-items:center; justify-content:center; width:132px; min-height:72px; }
+    .brand-logo { display:block; width:100%; max-width:132px; height:60px; object-fit:contain; }
+    .brand-logo.seal { width:76px; height:80px; }
+    .institution-heading { display:flex; align-items:start; justify-content:space-between; gap:15px; }
+    .institution-heading h3 { margin:0 0 6px; font-size:16px; line-height:1.55; }
+    .institution-heading h3>span { display:block; font-size:12px; font-weight:400; color:var(--muted); }
+    .institution-heading h3>span.primary-name { font-size:16px; font-weight:650; color:var(--ink); }
+    .institution-heading .date { white-space:nowrap; font-size:12px; }
+    .institution-copy p { margin:3px 0; font-size:14px; }
+    .brand-stack { display:flex; flex-direction:column; align-items:center; gap:16px; }
+    .brand-stack .brand-box { min-height:33px; }
+    .brand-stack .brand-box img { height:28px; }
+    .brand-logo.game-logo { height:95px; }
+    .game-title { color:#806335; font-size:12px!important; padding:3px 0; }
+    .role { font-weight:600; }
+    .section-intro { font-size:14px; margin:-4px 0 24px; }
+    .industry-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px; }
+    .industry-item { padding:0 16px 0 0; border-right:1px solid var(--line); }
+    .industry-item:last-child { border-right:0; padding-right:0; }
+    .industry-logo { height:69px; display:flex; align-items:center; margin-bottom:15px; }
+    .industry-logo .brand-logo { max-width:180px; height:54px; }
+    .industry-item h3 { font-size:14px; line-height:1.65; margin:0 0 4px; }
+    .org-english { font-size:11px; color:var(--muted); line-height:1.65; margin:0 0 8px; }
+    .participation { color:#497060; font-size:11px; }
+    html[lang="en"] .institution-heading h3 { font-size:14px; }
+    html[lang="en"] .institution-heading h3>span { font-size:14px; color:var(--ink); }
+    html[lang="en"] .institution-heading .primary-name+span { display:none; }
+    html[lang="en"] .profile .focus { font-size:13px; }
+    html[lang="en"] .industry-item h3 { font-size:12px; }
+    html[lang="en"] .org-english { font-size:13px; color:var(--ink); }
+    @media(max-width:1100px) { .nav-links { gap:13px; font-size:13px; } .nav { gap:15px; } }
+    @media(max-width:900px) { .desktop-nav { display:none; } .mobile-menu { display:block; position:relative; font-size:14px; } .mobile-menu summary { cursor:pointer; padding:4px 2px; } .mobile-menu .nav-links { position:absolute; right:0; top:35px; background:white; border:1px solid var(--line); border-radius:7px; min-width:160px; padding:15px 22px; box-shadow:0 6px 25px #23324b16; display:grid; gap:13px; } }
+    @media(min-width:791px) and (max-width:1100px) { .institution-row { grid-template-columns:105px minmax(0,1fr); gap:18px; } .brand-box { width:105px; } .institution-heading { display:block; } .institution-heading .date { display:block; margin-bottom:7px; } }
+    @media(max-width:570px) {
+      .nav { gap:12px; padding:12px 20px; } .nav-actions { gap:14px; } .home { font-size:16px; }
+      .profile { gap:0 18px; } .profile h1 { font-size:23px; } .english-name { display:block; margin-left:0; }
+      .profile .affiliation { margin-top:5px; font-size:12px; } .profile .detail { font-size:12px; }
+      .institution-row { grid-template-columns:84px minmax(0,1fr); gap:17px; align-items:start; }
+      .brand-box { width:84px; min-height:66px; } .brand-logo { height:50px; } .brand-logo.seal { width:60px; height:64px; }
+      .institution-heading { display:block; } .institution-heading .date { display:block; margin:5px 0; }
+      .institution-copy p { font-size:13px; } .institution-heading h3 { font-size:15px; }
+      .brand-stack { gap:12px; } .brand-logo.game-logo { width:84px; height:64px; }
+      .brand-stack .brand-box img { height:22px; }
+      .industry-grid { grid-template-columns:1fr; gap:20px; }
+      .industry-item { display:grid; grid-template-columns:98px minmax(0,1fr); column-gap:18px; border-right:0; border-bottom:1px solid var(--line); padding:0 0 18px; }
+      .industry-item:last-child { border-bottom:0; padding-bottom:0; }
+      .industry-logo { grid-row:1/4; height:75px; margin:0; } .industry-logo .brand-logo { height:48px; }
+      .industry-item h3 { font-size:13px; } .org-english { margin-bottom:4px; }
+      .participation { grid-column:2; } section { margin-bottom:35px; }
+    }
   </style>
 </head>
 <body>
-  <a class="skip" href="#content">跳至正文</a>
+  <a class="skip" href="#content" data-en="Skip to content">跳至正文</a>
   <header>
-    <nav class="nav" aria-label="主导航">
+    <nav class="nav" aria-label="主导航" data-en-aria-label="Main navigation">
       <a class="home" href="#about">Jinyi Mao</a>
       <div class="nav-links desktop-nav">
-        <a href="#about">关于我</a><a href="#projects">项目</a><a href="#publications">论文</a><a href="#education">教育</a><a href="#experience">实习</a><a href="#awards">获奖</a>
+        <a href="#about" data-en="About">关于我</a><a href="#projects" data-en="Projects">项目</a><a href="#publications" data-en="Papers">论文</a><a href="#education" data-en="Education">教育</a><a href="#experience" data-en="Experience">实习</a><a href="#industry" data-en="Industry">企业项目</a><a href="#awards" data-en="Awards">获奖</a>
       </div>
+      <div class="nav-actions"><div class="language-switch" role="group" aria-label="Language / 语言"><button type="button" data-lang="zh" aria-pressed="true">中文</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div>
       <details class="mobile-menu">
-        <summary>导航</summary>
-        <div class="nav-links"><a href="#about">关于我</a><a href="#projects">项目</a><a href="#publications">论文</a><a href="#education">教育</a><a href="#experience">实习</a><a href="#awards">获奖</a></div>
-      </details>
+        <summary data-en="Menu">导航</summary>
+        <div class="nav-links"><a href="#about" data-en="About">关于我</a><a href="#projects" data-en="Projects">项目</a><a href="#publications" data-en="Papers">论文</a><a href="#education" data-en="Education">教育</a><a href="#experience" data-en="Experience">实习</a><a href="#industry" data-en="Industry">企业项目</a><a href="#awards" data-en="Awards">获奖</a></div>
+      </details></div>
     </nav>
   </header>
   <main class="layout" id="content">
-    <aside class="profile" aria-label="个人信息">
-      <img class="portrait" src="assets/portrait.jpg" alt="茅谨怡的个人照片" width="196" height="196">
+    <aside class="profile" aria-label="个人信息" data-en-aria-label="Profile">
+      <img class="portrait" src="assets/portrait.jpg" alt="茅谨怡的个人照片" data-en-alt="Portrait of Jinyi Mao" width="196" height="196">
       <h1>茅谨怡<span class="english-name">Jinyi Mao</span></h1>
       <p class="affiliation">南京大学 · Nanjing University</p>
-      <p class="detail">管理工程学院<br>工业工程与管理 · 硕士研究生</p>
-      <p class="focus">研究方向<br>大模型 Agent · 检索增强生成<br>多源时空建模 · 交通智能</p>
+      <p class="detail" data-en="School of Management and Engineering&lt;br&gt;Master’s student · Industrial Engineering and Management">管理工程学院<br>工业工程与管理 · 硕士研究生</p>
+      <p class="focus" data-en="Research interests&lt;br&gt;LLM Agents · Retrieval-Augmented Generation&lt;br&gt;Multisource Spatiotemporal Modeling · Intelligent Transportation">研究方向<br>大模型 Agent · 检索增强生成<br>多源时空建模 · 交通智能</p>
       <a class="email" href="mailto:mjy0209@126.com">mjy0209@126.com</a>
     </aside>
     <div class="content-column">
       <section class="about" id="about" aria-labelledby="about-title">
-        <h2 id="about-title">关于我 <span>About Me</span></h2>
-        <p>你好，我是<strong>茅谨怡</strong>，目前在南京大学攻读工业工程与管理专业硕士学位，预计于 2028 年 6 月毕业。本科就读于扬州大学智能制造工程专业，以专业第一的成绩获得推免资格。</p>
-        <p>我关注<strong>大模型 Agent、检索增强生成与多源时空建模</strong>，希望将算法研究与可交互的应用结合起来。目前的工作包括车载多轮语音 Agent、可溯源问答系统，以及交通风险预测、信号配时估计和飞行数据建模。</p>
+        <h2 id="about-title" data-en="About Me">关于我 <span>About Me</span></h2>
+        <p data-en="Hello, I’m &lt;strong&gt;Jinyi Mao&lt;/strong&gt;, a master’s student in Industrial Engineering and Management at Nanjing University, expecting to graduate in June 2028. I earned my bachelor’s degree in Intelligent Manufacturing Engineering at Yangzhou University, ranking first in my major and receiving recommended admission to graduate study.">你好，我是<strong>茅谨怡</strong>，目前在南京大学攻读工业工程与管理专业硕士学位，预计于 2028 年 6 月毕业。本科就读于扬州大学智能制造工程专业，以专业第一的成绩获得推免资格。</p>
+        <p data-en="My interests lie in &lt;strong&gt;LLM agents, retrieval-augmented generation and multisource spatiotemporal modeling&lt;/strong&gt;, connecting algorithmic research with interactive applications. My work spans in-vehicle voice agents, source-grounded question answering, traffic risk prediction, signal timing estimation and flight data modeling.">我关注<strong>大模型 Agent、检索增强生成与多源时空建模</strong>，希望将算法研究与可交互的应用结合起来。目前的工作包括车载多轮语音 Agent、可溯源问答系统，以及交通风险预测、信号配时估计和飞行数据建模。</p>
       </section>
       <section id="projects" aria-labelledby="projects-title">
-        <h2 id="projects-title">大模型应用项目 <span>Selected Projects</span></h2>
+        <h2 id="projects-title" data-en="Selected Projects">大模型应用项目 <span>Selected Projects</span></h2>
         <article class="entry demo">
           <figure style="margin:0">
-            <button class="visual" data-image="assets/voice-demo.webp" data-caption="行知 · 多轮语音 Agent 实际演示界面" aria-label="放大行知语音 Agent 演示截图"><img src="assets/voice-demo.webp" alt="行知模拟座舱，展示打开空调后的车辆状态和对话反馈" width="1200" height="675"></button>
-            <figcaption class="caption">模拟座舱与多轮对话界面</figcaption>
+            <button class="visual" data-image="assets/voice-demo.webp" data-caption="行知 · 多轮语音 Agent 实际演示界面" data-en-data-caption="Xingzhi · Conversational Voice Agent demo" aria-label="放大行知语音 Agent 演示截图" data-en-aria-label="Enlarge the voice agent screenshot"><img src="assets/voice-demo.webp" alt="行知模拟座舱，展示打开空调后的车辆状态和对话反馈" data-en-alt="Simulated cockpit showing vehicle status and dialogue after turning on the air conditioning" width="1200" height="675"></button>
+            <figcaption class="caption" data-en="Simulated cockpit and multi-turn conversation">模拟座舱与多轮对话界面</figcaption>
           </figure>
           <div>
-            <h3><a href="https://xingzhi-voice-346501-13-1530814445.sh.run.tcloudbase.com/" target="_blank" rel="noopener noreferrer">行知 · 多轮语音 Agent</a></h3>
+            <h3><a href="https://xingzhi-voice-346501-13-1530814445.sh.run.tcloudbase.com/" target="_blank" rel="noopener noreferrer" data-en="Xingzhi · Conversational Voice Agent">行知 · 多轮语音 Agent</a></h3>
             <p class="tech">ASR / TTS · RoBERTa · Function Calling · Skills</p>
-            <p class="description">面向模拟座舱的自然语言控制，贯通语音交互、任务理解、工具调用与执行反馈。结合意图分类、结构化参数校验和权限约束，处理复合指令、多轮改口及执行条件，支持在线体验。</p>
-            <p class="links"><a href="https://xingzhi-voice-346501-13-1530814445.sh.run.tcloudbase.com/" target="_blank" rel="noopener noreferrer">在线 Demo ↗</a><a href="assets/voice-demo.webp" target="_blank" rel="noopener">界面截图 ↗</a></p>
+            <p class="description" data-en="A natural-language agent for a simulated vehicle cockpit, connecting speech interaction, intent understanding, tool use and execution feedback. Intent classification, structured parameter validation and permission controls support compound commands and multi-turn corrections. Available as an interactive demo.">面向模拟座舱的自然语言控制，贯通语音交互、任务理解、工具调用与执行反馈。结合意图分类、结构化参数校验和权限约束，处理复合指令、多轮改口及执行条件，支持在线体验。</p>
+            <p class="links"><a href="https://xingzhi-voice-346501-13-1530814445.sh.run.tcloudbase.com/" target="_blank" rel="noopener noreferrer" data-en="Live Demo ↗">在线 Demo ↗</a><a href="assets/voice-demo.webp" target="_blank" rel="noopener" data-en="Screenshot ↗">界面截图 ↗</a></p>
           </div>
         </article>
         <article class="entry demo">
           <figure style="margin:0">
-            <button class="visual" data-image="assets/rag-demo.webp" data-caption="车书 · 可溯源问答系统实际演示界面" aria-label="放大车书问答系统演示截图"><img class="rag" src="assets/rag-demo.webp" alt="车书问答系统，左侧展示回答，右侧定位并高亮手册原文" width="1200" height="849" loading="lazy"></button>
-            <figcaption class="caption">问答结果与手册原文对照</figcaption>
+            <button class="visual" data-image="assets/rag-demo.webp" data-caption="车书 · 可溯源问答系统实际演示界面" data-en-data-caption="Cheshu · Source-Grounded Q&amp;A demo" aria-label="放大车书问答系统演示截图" data-en-aria-label="Enlarge the Q&amp;A screenshot"><img class="rag" src="assets/rag-demo.webp" alt="车书问答系统，左侧展示回答，右侧定位并高亮手册原文" data-en-alt="Q&amp;A answer on the left with the source manual highlighted on the right" width="1200" height="849" loading="lazy"></button>
+            <figcaption class="caption" data-en="Answers alongside the original manual">问答结果与手册原文对照</figcaption>
           </figure>
           <div>
-            <h3><a href="https://manual-demo-346501-13-1530814445.sh.run.tcloudbase.com/" target="_blank" rel="noopener noreferrer">车书 · 可溯源问答系统</a></h3>
+            <h3><a href="https://manual-demo-346501-13-1530814445.sh.run.tcloudbase.com/" target="_blank" rel="noopener noreferrer" data-en="Cheshu · Source-Grounded Q&amp;A">车书 · 可溯源问答系统</a></h3>
             <p class="tech">RAG · Reranker · LoRA · AWQ · vLLM</p>
-            <p class="description">基于汽车用户手册构建领域问答系统，通过父子文档、混合检索与精排组织证据，支持多轮问答、页码引用和原文定位。项目同时开展领域 LoRA 微调与量化推理实验。</p>
-            <p class="links"><a href="https://manual-demo-346501-13-1530814445.sh.run.tcloudbase.com/" target="_blank" rel="noopener noreferrer">在线 Demo ↗</a><a href="assets/rag-demo.webp" target="_blank" rel="noopener">界面截图 ↗</a></p>
+            <p class="description" data-en="A domain-specific Q&amp;A system grounded in vehicle manuals. Parent–child documents, hybrid retrieval and reranking support multi-turn questions, page citations and source highlighting. The project also includes domain LoRA fine-tuning and quantized inference experiments.">基于汽车用户手册构建领域问答系统，通过父子文档、混合检索与精排组织证据，支持多轮问答、页码引用和原文定位。项目同时开展领域 LoRA 微调与量化推理实验。</p>
+            <p class="links"><a href="https://manual-demo-346501-13-1530814445.sh.run.tcloudbase.com/" target="_blank" rel="noopener noreferrer" data-en="Live Demo ↗">在线 Demo ↗</a><a href="assets/rag-demo.webp" target="_blank" rel="noopener" data-en="Screenshot ↗">界面截图 ↗</a></p>
           </div>
         </article>
       </section>
       <section id="publications" aria-labelledby="publications-title">
-        <h2 id="publications-title">已发表论文 <span>Publications</span></h2>
+        <h2 id="publications-title" data-en="Publications">已发表论文 <span>Publications</span></h2>
         <article class="entry">
           <figure style="margin:0">
-            <button class="visual" data-image="assets/flight-fusion.png" data-caption="双层动态融合神经网络 · 论文 Fig. 5" aria-label="放大飞行参数预测论文方法图"><img src="assets/flight-fusion.png" alt="LSTM、Transformer、TCN 经特征层和预测层融合的双层神经网络" width="1400" height="800" loading="lazy"></button>
-            <figcaption class="caption">原论文 Fig. 5 · 双层动态融合网络</figcaption>
+            <button class="visual" data-image="assets/flight-fusion.png" data-caption="双层动态融合神经网络 · 论文 Fig. 5" data-en-data-caption="Two-layer dynamic fusion network · Fig. 5" aria-label="放大飞行参数预测论文方法图" data-en-aria-label="Enlarge the flight forecasting method figure"><img src="assets/flight-fusion.png" alt="LSTM、Transformer、TCN 经特征层和预测层融合的双层神经网络" data-en-alt="LSTM, Transformer and TCN fusion at feature and prediction levels" width="1400" height="800" loading="lazy"></button>
+            <figcaption class="caption" data-en="Fig. 5 · Two-layer dynamic fusion network">原论文 Fig. 5 · 双层动态融合网络</figcaption>
           </figure>
           <div>
             <p class="venue">IEEE TAES · 2025</p>
             <h3 class="paper-title"><a href="https://doi.org/10.1109/TAES.2025.3596574" target="_blank" rel="noopener noreferrer">Two-Layer Fusion Multistep Flight Safety Parameter Prediction and Early Warning Strategy Based on QAR Parameters</a></h3>
             <p class="authors">Jian Chen, <strong>Jinyi Mao</strong>, Cunhao Lu</p>
-            <p class="description">基于 QAR 飞行数据，并行融合 LSTM、Transformer 与 TCN，在特征层和预测层动态分配权重，实现关键飞行参数的多步预测，并结合滑动窗口波动构建分级预警策略。</p>
-            <p class="links"><a href="https://doi.org/10.1109/TAES.2025.3596574" target="_blank" rel="noopener noreferrer">论文 / DOI ↗</a><a href="assets/flight-fusion.png" target="_blank" rel="noopener">方法图 ↗</a></p>
+            <p class="description" data-en="Combines LSTM, Transformer and TCN models with dynamic weighting at the feature and prediction levels for multistep forecasting of QAR flight parameters. Sliding-window fluctuations inform a tiered early-warning strategy.">基于 QAR 飞行数据，并行融合 LSTM、Transformer 与 TCN，在特征层和预测层动态分配权重，实现关键飞行参数的多步预测，并结合滑动窗口波动构建分级预警策略。</p>
+            <p class="links"><a href="https://doi.org/10.1109/TAES.2025.3596574" target="_blank" rel="noopener noreferrer" data-en="Paper / DOI ↗">论文 / DOI ↗</a><a href="assets/flight-fusion.png" target="_blank" rel="noopener" data-en="Method Figure ↗">方法图 ↗</a></p>
           </div>
         </article>
         <article class="entry">
           <figure style="margin:0">
-            <button class="visual" data-image="assets/flight-rating.png" data-caption="飞行技术评级方法总流程 · 论文 Fig. 5" aria-label="放大飞行技术评级论文方法图"><img src="assets/flight-rating.png" alt="飞行技术评级流程，包含重采样、集成学习、SFS-ADR、Optuna 和 SHAP" width="1600" height="480" loading="lazy"></button>
-            <figcaption class="caption">原论文 Fig. 5 · 飞行技术评级流程</figcaption>
+            <button class="visual" data-image="assets/flight-rating.png" data-caption="飞行技术评级方法总流程 · 论文 Fig. 5" data-en-data-caption="Flight skill evaluation pipeline · Fig. 5" aria-label="放大飞行技术评级论文方法图" data-en-aria-label="Enlarge the flight evaluation method figure"><img src="assets/flight-rating.png" alt="飞行技术评级流程，包含重采样、集成学习、SFS-ADR、Optuna 和 SHAP" data-en-alt="Flight evaluation pipeline with resampling, ensemble learning, SFS-ADR, Optuna and SHAP" width="1600" height="480" loading="lazy"></button>
+            <figcaption class="caption" data-en="Fig. 5 · Flight skill evaluation pipeline">原论文 Fig. 5 · 飞行技术评级流程</figcaption>
           </figure>
           <div>
             <p class="venue">Aerospace Science and Technology · 2025</p>
             <h3 class="paper-title"><a href="https://doi.org/10.1016/j.ast.2025.110251" target="_blank" rel="noopener noreferrer">Optimization strategy for ensemble learning models based on fusing resampling, adaptive dimensionality reduction, and Optuna in intelligent flight technology evaluation</a></h3>
             <p class="authors"><strong>Jinyi Mao</strong>, Jian Chen, Yaoji Deng</p>
-            <p class="description">面向飞行技术评级，将重采样、逐步特征选择与自适应降维（SFS-ADR）、Optuna 调参整合为集成学习优化流程，并使用 SHAP 解释关键飞行参数对评级结果的贡献。</p>
-            <p class="links"><a href="https://doi.org/10.1016/j.ast.2025.110251" target="_blank" rel="noopener noreferrer">论文 / DOI ↗</a><a href="assets/flight-rating.png" target="_blank" rel="noopener">方法图 ↗</a></p>
+            <p class="description" data-en="An ensemble-learning pipeline for flight skill evaluation, integrating resampling, sequential feature selection with adaptive dimensionality reduction (SFS-ADR), and Optuna optimization. SHAP explains how key flight parameters contribute to the ratings.">面向飞行技术评级，将重采样、逐步特征选择与自适应降维（SFS-ADR）、Optuna 调参整合为集成学习优化流程，并使用 SHAP 解释关键飞行参数对评级结果的贡献。</p>
+            <p class="links"><a href="https://doi.org/10.1016/j.ast.2025.110251" target="_blank" rel="noopener noreferrer" data-en="Paper / DOI ↗">论文 / DOI ↗</a><a href="assets/flight-rating.png" target="_blank" rel="noopener" data-en="Method Figure ↗">方法图 ↗</a></p>
           </div>
         </article>
       </section>
       <section id="under-review" aria-labelledby="review-title">
-        <h2 id="review-title">在投论文 <span>Under Review</span></h2>
+        <h2 id="review-title" data-en="Under Review">在投论文 <span>Under Review</span></h2>
         <article class="submission">
           <h3>Probabilistic modeling of traffic accident risk under context-dependent distributional heterogeneity: A hurdle mixture-of-distribution-experts approach</h3>
-          <p>在投 · Transportation Research Part B: Methodological</p>
+          <p data-en="Under review · Transportation Research Part B: Methodological">在投 · Transportation Research Part B: Methodological</p>
         </article>
         <article class="submission">
           <h3>Self-supervised dynamic signal timing estimation from sparse probe vehicle data: A deep traffic structural prior approach</h3>
-          <p>在投 · IEEE Transactions on Intelligent Transportation Systems</p>
+          <p data-en="Under review · IEEE Transactions on Intelligent Transportation Systems">在投 · IEEE Transactions on Intelligent Transportation Systems</p>
         </article>
       </section>
       <section id="education" aria-labelledby="education-title">
-        <h2 id="education-title">教育背景 <span>Education</span></h2>
-        <ul class="timeline">
-          <li><div class="date">2025.09 — 至今</div><div><strong class="school">南京大学</strong><p>工业工程与管理 · 硕士研究生（推免）</p><p class="secondary">管理工程学院 · 预计 2028.06 毕业 · 专业排名前 5%</p></div></li>
-          <li><div class="date">2021.09 — 2025.06</div><div><strong class="school">扬州大学</strong><p>智能制造工程 · 本科</p><p class="secondary">专业排名 1 / 79</p></div></li>
-        </ul>
-      </section>
-      <section id="experience" aria-labelledby="experience-title">
-        <h2 id="experience-title">实习经历 <span>Experience</span></h2>
-        <ul class="timeline"><li><div class="date">2026.07 — 2026.10</div><div><strong class="school">腾讯 · 天美工作室群</strong><p>研发 PM 实习生</p><p class="description">参与《怪物猎人：旅人》海外版本研发，负责武器及冒险家内容的需求拆解、跨团队协作与交付跟进，参与标准化研发管线和 AI 辅助工具落地。</p></div></li></ul>
-      </section>
+<h2 id="education-title" data-en="Education">教育背景 <span>Education</span></h2>
+<div class="institution-row">
+ <a class="brand-box" href="https://www.nju.edu.cn/" target="_blank" rel="noopener noreferrer" aria-label="Nanjing University"><img class="brand-logo " src="assets/logos/nju.png" alt="南京大学 · Nanjing University" loading="lazy"></a>
+ <div class="institution-copy"><div class="institution-heading"><h3>南京大学 <span>Nanjing University</span></h3><span class="date" data-en="Sep 2025 — Present">2025.09 — 至今</span></div>
+ <p data-en="Master’s student in Industrial Engineering and Management · Recommended admission">工业工程与管理 · 硕士研究生（推免）</p>
+ <p class="secondary" data-en="School of Management and Engineering · Expected Jun 2028 · Top 5%">管理工程学院 · 预计 2028.06 毕业 · 专业排名前 5%</p>
+ </div>
+</div>
+<div class="institution-row">
+ <a class="brand-box" href="https://www.yzu.edu.cn/" target="_blank" rel="noopener noreferrer" aria-label="Yangzhou University"><img class="brand-logo seal" src="assets/logos/yzu.png" alt="扬州大学 · Yangzhou University" loading="lazy"></a>
+ <div class="institution-copy"><div class="institution-heading"><h3>扬州大学 <span>Yangzhou University</span></h3><span class="date" data-en="Sep 2021 — Jun 2025">2021.09 — 2025.06</span></div>
+ <p data-en="Bachelor’s degree in Intelligent Manufacturing Engineering">智能制造工程 · 本科</p>
+ <p class="secondary" data-en="Ranked 1st out of 79 students">专业排名 1 / 79</p>
+ </div>
+</div>
+</section>
+<section id="experience" aria-labelledby="experience-title">
+<h2 id="experience-title" data-en="Experience">实习经历 <span>Experience</span></h2>
+<div class="institution-row internship-row">
+ <div class="brand-stack"><a class="brand-box" href="https://www.tencent.com/" target="_blank" rel="noopener noreferrer" aria-label="Tencent"><img class="brand-logo " src="assets/logos/tencent.png" alt="腾讯 · Tencent" loading="lazy"></a>
+ <a class="game-brand" href="https://monsterhunteroutlanders.com/" target="_blank" rel="noopener noreferrer" aria-label="Monster Hunter Outlanders"><img class="brand-logo game-logo" src="assets/logos/mho.png" alt="怪物猎人：旅人 · Monster Hunter Outlanders" loading="lazy"></a></div>
+ <div class="institution-copy"><div class="institution-heading"><h3><span class="primary-name" data-en="Tencent · TiMi Studio Group">腾讯 · 天美工作室群</span><span>Tencent · TiMi Studio Group</span></h3><span class="date">2026.07 — 2026.10</span></div>
+ <p class="role" data-en="R&amp;D Project Management Intern">研发 PM 实习生</p>
+ <p class="game-title" data-en="Monster Hunter Outlanders">怪物猎人：旅人 · Monster Hunter Outlanders</p>
+ <p class="description" data-en="Contributed to the international version of Monster Hunter Outlanders, coordinating requirements, cross-functional collaboration and delivery for weapons and Adventurers. Supported standardized development pipelines and the adoption of AI-assisted tools.">参与《怪物猎人：旅人》海外版本研发，负责武器及冒险家内容的需求拆解、跨团队协作与交付跟进，参与标准化研发管线和 AI 辅助工具落地。</p>
+ </div>
+</div>
+</section>
+<section id="industry" aria-labelledby="industry-title">
+<h2 id="industry-title" data-en="Industry Projects">企业项目经历 <span>Industry Projects</span></h2>
+<p class="section-intro" data-en="Participated in projects involving State Grid, CHN Energy’s Ningxia branch, and SPIC’s Hebei / Xiong’an company.">参与国家电网、国家能源集团宁夏分公司及国家电投河北公司（雄安公司）的相关项目。</p>
+<div class="industry-grid"><article class="industry-item"><a class="industry-logo" href="https://www.sgcc.com.cn/" target="_blank" rel="noopener noreferrer" aria-label="State Grid Corporation of China"><img class="brand-logo " src="assets/logos/sgcc.svg" alt="国家电网 · State Grid Corporation of China" loading="lazy"></a><h3>国家电网</h3><p class="org-english">State Grid Corporation of China</p><span class="participation" data-en="Project participant">项目参与</span></article><article class="industry-item"><a class="industry-logo" href="https://www.ceic.com/" target="_blank" rel="noopener noreferrer" aria-label="CHN Energy · Ningxia Branch"><img class="brand-logo " src="assets/logos/ceic.svg" alt="国家能源集团宁夏分公司 · CHN Energy · Ningxia Branch" loading="lazy"></a><h3>国家能源集团宁夏分公司</h3><p class="org-english">CHN Energy · Ningxia Branch</p><span class="participation" data-en="Project participant">项目参与</span></article><article class="industry-item"><a class="industry-logo" href="https://www.spic.com.cn/" target="_blank" rel="noopener noreferrer" aria-label="SPIC · Hebei / Xiong’an Company"><img class="brand-logo " src="assets/logos/spic.png" alt="国家电投河北公司（雄安公司） · SPIC · Hebei / Xiong’an Company" loading="lazy"></a><h3>国家电投河北公司（雄安公司）</h3><p class="org-english">SPIC · Hebei / Xiong’an Company</p><span class="participation" data-en="Project participant">项目参与</span></article></div></section>
       <section id="awards" aria-labelledby="awards-title">
-        <h2 id="awards-title">获奖与荣誉 <span>Awards &amp; Honors</span></h2>
+        <h2 id="awards-title" data-en="Awards &amp;amp; Honors">获奖与荣誉 <span>Awards &amp; Honors</span></h2>
         <ul class="awards">
-          <li><strong>国家奖学金</strong>（本科及硕士阶段）</li>
-          <li><strong>一等学业奖学金</strong>（南京大学，2 次）</li>
-          <li><strong>江苏省三好学生</strong></li>
-          <li><strong>校长特别奖学金</strong> · 扬州大学（全校 10 人）</li>
-          <li><strong>Kaggle 银牌</strong> · 2023 HuBMAP — Hacking the Human Vasculature 医学图像实例分割竞赛</li>
+          <li data-en="&lt;strong&gt;National Scholarship&lt;/strong&gt; · Undergraduate and graduate studies"><strong>国家奖学金</strong>（本科及硕士阶段）</li>
+          <li data-en="&lt;strong&gt;First-Class Academic Scholarship&lt;/strong&gt; · Nanjing University, twice"><strong>一等学业奖学金</strong>（南京大学，2 次）</li>
+          <li data-en="&lt;strong&gt;Jiangsu Provincial Outstanding Student&lt;/strong&gt;"><strong>江苏省三好学生</strong></li>
+          <li data-en="&lt;strong&gt;President’s Special Scholarship&lt;/strong&gt; · Yangzhou University, 10 recipients university-wide"><strong>校长特别奖学金</strong> · 扬州大学（全校 10 人）</li>
+          <li data-en="&lt;strong&gt;Kaggle Silver Medal&lt;/strong&gt; · 2023 HuBMAP — Hacking the Human Vasculature, medical image instance segmentation"><strong>Kaggle 银牌</strong> · 2023 HuBMAP — Hacking the Human Vasculature 医学图像实例分割竞赛</li>
         </ul>
-        <p class="other">其他成果 · 授权发明专利 1 项，软件著作权 8 项。</p>
+        <p class="other" data-en="Other achievements · 1 granted invention patent and 8 software copyright registrations.">其他成果 · 授权发明专利 1 项，软件著作权 8 项。</p>
       </section>
-      <footer>© 2026 茅谨怡 Jinyi Mao <span style="float:right">更新于 2026 年 11 月</span></footer>
+      <footer>© 2026 茅谨怡 Jinyi Mao <span style="float:right" data-en="Updated November 2026">更新于 2026 年 11 月</span></footer>
     </div>
   </main>
   <dialog id="image-viewer" aria-labelledby="viewer-caption">
-    <div class="viewer-top"><p id="viewer-caption"></p><button class="close" type="button">关闭 ×</button></div>
+    <div class="viewer-top"><p id="viewer-caption"></p><button class="close" type="button" data-en="Close ×">关闭 ×</button></div>
     <img class="viewer-image" id="viewer-image" alt="">
   </dialog>
   <script>
+
+    const translatedNodes = [...document.querySelectorAll('[data-en]')];
+    translatedNodes.forEach(node => { node.dataset.zh = node.innerHTML; });
+    const translatedAttributes = ['alt', 'aria-label', 'data-caption'];
+    translatedAttributes.forEach(attr => {
+      document.querySelectorAll(`[data-en-${attr}]`).forEach(node => {
+        node.setAttribute(`data-zh-${attr}`, node.getAttribute(attr));
+      });
+    });
+    function setLanguage(language) {
+      const en = language === 'en';
+      document.documentElement.lang = en ? 'en' : 'zh-CN';
+      document.title = en ? 'Jinyi Mao · Academic Homepage' : '茅谨怡 Jinyi Mao · 个人主页';
+      translatedNodes.forEach(node => { node.innerHTML = en ? node.dataset.en : node.dataset.zh; });
+      translatedAttributes.forEach(attr => {
+        document.querySelectorAll(`[data-en-${attr}]`).forEach(node => {
+          node.setAttribute(attr, node.getAttribute(`data-${en ? 'en' : 'zh'}-${attr}`));
+        });
+      });
+      document.querySelectorAll('[data-lang]').forEach(button => {
+        button.setAttribute('aria-pressed', String(button.dataset.lang === language));
+      });
+      try { localStorage.setItem('homepage-language', language); } catch (_) {}
+    }
+    document.querySelectorAll('[data-lang]').forEach(button => {
+      button.addEventListener('click', () => setLanguage(button.dataset.lang));
+    });
+    let preferredLanguage = 'zh';
+    try { preferredLanguage = localStorage.getItem('homepage-language') || 'zh'; } catch (_) {}
+    setLanguage(preferredLanguage === 'en' ? 'en' : 'zh');
+
     const viewer = document.getElementById('image-viewer');
     const viewerImage = document.getElementById('viewer-image');
     const viewerCaption = document.getElementById('viewer-caption');
