@@ -191,6 +191,52 @@
     .profile .personal-meta { margin:10px 0 0; color:var(--muted); font-size:12px; line-height:1.8; }
     .project-work { margin:9px 0 0; font-size:13px; line-height:1.8; color:var(--ink); }
     @media(max-width:570px) { .project-work { grid-column:2; margin-top:5px; font-size:12px; } .profile .personal-meta { margin-top:5px; font-size:11px; } }
+
+    /* A little softness, with motion confined to decorative details. */
+    :root { --ink:#303348; --muted:#74758a; --line:#e9e6ef; --blue:#516e9e; --soft:#faf8fd; }
+    body { background-color:#fffefd; background-image:radial-gradient(ellipse at 0 8%,#eee9fa80,transparent 38%),radial-gradient(ellipse at 100% 75%,#fff0e96b,transparent 36%); background-attachment:fixed; }
+    header { background:rgba(255,254,253,.95); border-color:#ece7f1; }
+    .home::after { content:"✦"; display:inline-block; color:#c4a7d7; margin-left:8px; font-size:13px; transition:transform .3s; }
+    .home:hover::after { transform:rotate(80deg); }
+    .language-switch { background:#f2eef8; }
+    .language-switch button[aria-pressed="true"] { color:#756193; }
+    .nav-links a { transition:color .2s; }
+    .nav-links a:hover { color:#9472b0; }
+    .portrait-wrap { position:relative; width:196px; height:196px; isolation:isolate; margin-bottom:6px; }
+    .portrait { border:4px solid #fff; border-radius:20px; box-shadow:0 5px 24px #a393b51c,0 0 0 1px #e7dff0; }
+    .profile-mascot { width:68px; height:70px; position:absolute; right:-22px; bottom:-14px; overflow:visible; pointer-events:none; }
+    .portrait-spark { position:absolute; color:#c6a3d7; line-height:1; pointer-events:none; }
+    .spark-one { font-size:22px; top:-9px; right:9px; }
+    .spark-two { font-size:16px; bottom:22px; left:-10px; color:#dfb77e; }
+    .cat-float { transform-origin:40px 65px; }
+    .cat-eyes { transform-box:fill-box; transform-origin:center; }
+    html:not([data-motion="off"]) .cat-float { animation:cat-float 5s ease-in-out infinite; }
+    html:not([data-motion="off"]) .cat-eyes { animation:cat-blink 7s ease-in-out infinite; }
+    html:not([data-motion="off"]) .portrait-spark { animation:soft-spark 4.5s ease-in-out infinite; }
+    html:not([data-motion="off"]) .spark-two { animation-delay:-2s; }
+    @keyframes cat-float { 0%,100% { transform:translateY(0) rotate(-2deg); } 50% { transform:translateY(-4px) rotate(1deg); } }
+    @keyframes cat-blink { 0%,43%,47%,100% { transform:scaleY(1); } 45% { transform:scaleY(.12); } }
+    @keyframes soft-spark { 0%,100% { opacity:.55; transform:scale(.92); } 50% { opacity:1; transform:scale(1.06); } }
+    .profile .personal-meta { display:grid; gap:4px; margin-top:12px; font-size:12px; line-height:1.7; color:var(--muted); }
+    .birthday { display:flex; align-items:center; gap:5px; font-variant-numeric:tabular-nums; }
+    .birthday img { display:block; }
+    h2:after { background:linear-gradient(to right,#c4b4db,#ece7f1 65%,transparent); }
+    .section-icon { filter:drop-shadow(0 3px 2px #86729f13); }
+    .about .direction-note { margin:20px 0 0; padding:14px 18px; border-left:3px solid #d4c2e5; border-radius:0 12px 12px 0; background:linear-gradient(110deg,#f4effaab,#fff7ee66); color:#656177; font-size:14px; line-height:1.95; }
+    .direction-note strong { color:#75618b; font-weight:600; }
+    .visual { border-radius:12px; box-shadow:0 2px 9px #a99ab608; transition:transform .25s,box-shadow .25s,border-color .25s; }
+    .visual:hover { transform:translateY(-3px); border-color:#c9b4dc; box-shadow:0 8px 20px #9e88ba1a; }
+    .brand-logo { transition:transform .25s; }
+    .brand-box:hover .brand-logo,.industry-logo:hover .brand-logo { transform:translateY(-2px); }
+    .motion-toggle { display:flex; align-items:center; gap:5px; border:0; background:transparent; padding:3px 0; margin-top:10px; color:var(--muted); font-size:11px; cursor:pointer; }
+    .motion-symbol { color:#b89acb; font-size:14px; }
+    .motion-toggle:hover { color:#756193; }
+    html[data-motion="off"] *,html[data-motion="off"] *::before,html[data-motion="off"] *::after { animation:none!important; transition:none!important; scroll-behavior:auto!important; }
+    html[data-motion="off"] h2:hover .section-icon,html[data-motion="off"] .visual:hover { transform:none; }
+    @media(max-width:790px) { .portrait-wrap { width:112px; height:112px; grid-row:1/5; margin:0; } .portrait { grid-row:auto; border-width:3px; border-radius:14px; } .profile-mascot { width:43px; height:45px; right:-9px; bottom:-9px; } .spark-one { font-size:17px; right:2px; top:-8px; } .spark-two { font-size:13px; left:-7px; bottom:12px; } .profile .personal-meta { margin-top:8px; } }
+    @media(max-width:570px) { .profile .personal-meta { font-size:11px; gap:2px; } .birthday img { width:19px; height:19px; } .about .direction-note { padding:12px 14px; font-size:13px; } }
+    @media(prefers-reduced-motion:reduce) { *,*::before,*::after { animation:none!important; transition:none!important; scroll-behavior:auto!important; } }
+    @media print { body { background:#fff; } .profile-mascot,.portrait-spark,.motion-toggle { display:none; } .portrait-wrap { float:right; width:100px; height:100px; } }
   </style>
 </head>
 <body>
@@ -208,11 +254,11 @@
   </header>
   <main class="layout" id="content">
     <aside class="profile" aria-label="个人信息" data-en-aria-label="Profile">
-      <img class="portrait" src="assets/portrait.jpg" alt="茅谨怡的个人照片" data-en-alt="Portrait of Jinyi Mao" width="196" height="196">
+      <div class="portrait-wrap"><img class="portrait" src="assets/portrait.jpg" alt="茅谨怡的个人照片" data-en-alt="Portrait of Jinyi Mao" width="196" height="196"><svg class="profile-mascot" viewBox="0 0 78 80" aria-hidden="true" focusable="false"><ellipse cx="41" cy="73" rx="22" ry="4" fill="#C7BEDD" opacity=".22"/><g class="cat-float" stroke="#8C7DA1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M57 57q16-8 12 5-1 5-11 4" fill="#FFF9EE"/><path d="M22 43q-6 12-3 24 19 8 39 0 3-15-4-25Z" fill="#FFFDFA"/><path d="M15 31 14 10 31 21q9-3 18 0L65 10l-1 23q4 25-25 25T15 31Z" fill="#FFFDFA"/><path d="m19 17 1 13 8-6M60 17l-1 13-7-6" fill="#F3CEDA" stroke="none"/><g class="cat-eyes" fill="#786A91" stroke="none"><ellipse cx="29" cy="37" rx="2" ry="3"/><ellipse cx="49" cy="37" rx="2" ry="3"/></g><ellipse cx="23" cy="44" rx="5" ry="2.5" fill="#F7DCE4" stroke="none"/><ellipse cx="55" cy="44" rx="5" ry="2.5" fill="#F7DCE4" stroke="none"/><path d="m37 41 2 2 2-2M39 43q-4 6-7 1M39 43q4 6 7 1" fill="none"/><path d="M26 60v8M49 60v8"/><path d="m39 53 3 5 6 1-4 4 1 6-6-3-5 3 1-6-4-4 6-1Z" fill="#F7D68F" stroke="#BA9859" stroke-width="1.3"/></g></svg><span class="portrait-spark spark-one" aria-hidden="true">✦</span><span class="portrait-spark spark-two" aria-hidden="true">✧</span></div>
       <h1>茅谨怡<span class="english-name">Jinyi Mao</span></h1>
       <p class="affiliation">南京大学 · Nanjing University</p>
       <p class="detail" data-en="School of Management and Engineering&lt;br&gt;Master’s student · Industrial Engineering and Management">工程管理学院<br>工业工程与管理 · 硕士研究生</p>
-      <p class="personal-meta" data-en="Nanjing, Jiangsu · Born Sep 2002">江苏南京 · 2002.09 生</p>
+      <div class="personal-meta"><span data-en="Hometown: Nanjing, Jiangsu">籍贯：江苏南京</span><span class="birthday"><img src="assets/icons/cake.svg" width="22" height="22" alt="出生年月" data-en-alt="Birth month and year"><span>2002.09</span></span></div>
       <p class="focus" data-en="Research interests&lt;br&gt;LLM Agents · Retrieval-Augmented Generation&lt;br&gt;Multisource Spatiotemporal Modeling · Intelligent Transportation">研究方向<br>大模型 Agent · 检索增强生成<br>多源时空建模 · 交通智能</p>
       <a class="email" href="mailto:mjy0209@126.com">mjy0209@126.com</a>
     </aside>
@@ -221,6 +267,7 @@
         <h2 id="about-title"><img class="section-icon" src="assets/icons/about.svg" alt="" aria-hidden="true" width="44" height="44"><span class="heading-copy" data-en="About Me">关于我 <span>About Me</span></span></h2>
         <p data-en="Hello, I’m &lt;strong&gt;Jinyi Mao&lt;/strong&gt;, a master’s student in Industrial Engineering and Management at Nanjing University, expecting to graduate in June 2028. I earned my bachelor’s degree in Intelligent Manufacturing Engineering at Yangzhou University, ranking first in my major and receiving recommended admission to graduate study.">你好，我是<strong>茅谨怡</strong>，目前在南京大学攻读工业工程与管理专业硕士学位，预计于 2028 年 6 月毕业。本科就读于扬州大学智能制造工程专业，以专业第一的成绩获得推免资格。</p>
         <p data-en="My interests lie in &lt;strong&gt;LLM agents, retrieval-augmented generation and multisource spatiotemporal modeling&lt;/strong&gt;, connecting algorithmic research with interactive applications. My work spans in-vehicle voice agents, source-grounded question answering, traffic risk prediction, signal timing estimation and flight data modeling.">我关注<strong>大模型 Agent、检索增强生成与多源时空建模</strong>，希望将算法研究与可交互的应用结合起来。目前的工作包括车载多轮语音 Agent、可溯源问答系统，以及交通风险预测、信号配时估计和飞行数据建模。</p>
+        <p class="direction-note" data-en="I hope to keep growing in &lt;strong&gt;product ideas and value propositions&lt;/strong&gt;, &lt;strong&gt;AI engineering and implementation&lt;/strong&gt;, and &lt;strong&gt;project management for reliable delivery&lt;/strong&gt;, while finding the direction I want to pursue long term.">希望在<strong>产品创意与卖点提炼</strong>、<strong>AI Engineering 技术落地</strong>、<strong>项目管理与流程化交付</strong>三个方面持续积累，找到适合长期投入的方向。</p>
       </section>
       <section id="education" aria-labelledby="education-title">
 <h2 id="education-title"><img class="section-icon" src="assets/icons/education.svg" alt="" aria-hidden="true" width="44" height="44"><span class="heading-copy" data-en="Education">教育背景 <span>Education</span></span></h2>
@@ -333,7 +380,7 @@
         </ul>
         <p class="other" data-en="Other achievements · 1 granted invention patent and 8 software copyright registrations.">其他成果 · 授权发明专利 1 项，软件著作权 8 项。</p>
       </section>
-      <footer>© 2026 茅谨怡 Jinyi Mao <span style="float:right" data-en="Updated November 2026">更新于 2026 年 11 月</span></footer>
+      <footer>© 2026 茅谨怡 Jinyi Mao <span style="float:right" data-en="Updated November 2026">更新于 2026 年 11 月</span><button type="button" class="motion-toggle" aria-pressed="true"><span class="motion-symbol" aria-hidden="true">✦</span><span class="motion-label">动效：开</span></button></footer>
     </div>
   </main>
   <dialog id="image-viewer" aria-labelledby="viewer-caption">
@@ -341,6 +388,29 @@
     <img class="viewer-image" id="viewer-image" alt="">
   </dialog>
   <script>
+
+
+    const motionPreference = matchMedia('(prefers-reduced-motion: reduce)');
+    const motionToggle = document.querySelector('.motion-toggle');
+    let savedMotion = null;
+    try { savedMotion = localStorage.getItem('homepage-motion'); } catch (_) {}
+    let motionEnabled = savedMotion === 'off' ? false : !motionPreference.matches;
+    function updateMotion() {
+      document.documentElement.dataset.motion = motionEnabled ? 'on' : 'off';
+      motionToggle.setAttribute('aria-pressed', String(motionEnabled));
+      const english = document.documentElement.lang === 'en';
+      motionToggle.querySelector('.motion-label').textContent = english ? `Motion: ${motionEnabled ? 'on' : 'off'}` : `动效：${motionEnabled ? '开' : '关'}`;
+      motionToggle.setAttribute('aria-label', english ? 'Toggle decorative motion' : '开关装饰动效');
+    }
+    motionToggle.addEventListener('click', () => {
+      motionEnabled = !motionEnabled;
+      try { localStorage.setItem('homepage-motion', motionEnabled ? 'on' : 'off'); } catch (_) {}
+      updateMotion();
+    });
+    motionPreference.addEventListener('change', event => {
+      if (event.matches) { motionEnabled = false; updateMotion(); }
+    });
+    updateMotion();
 
     const translatedNodes = [...document.querySelectorAll('[data-en]')];
     translatedNodes.forEach(node => { node.dataset.zh = node.innerHTML; });
@@ -354,6 +424,7 @@
       const en = language === 'en';
       document.documentElement.lang = en ? 'en' : 'zh-CN';
       document.title = 'Jinyi Mao';
+      updateMotion();
       translatedNodes.forEach(node => { node.innerHTML = en ? node.dataset.en : node.dataset.zh; });
       translatedAttributes.forEach(attr => {
         document.querySelectorAll(`[data-en-${attr}]`).forEach(node => {
