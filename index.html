@@ -187,6 +187,10 @@
     h2 .heading-copy>span { display:inline-block; font-size:13px; line-height:1.5; margin-left:10px; color:var(--muted); font-weight:400; }
     @media(max-width:570px) { h2 { gap:10px; } .section-icon { width:39px; height:39px; flex-basis:39px; } h2 .heading-copy { font-size:20px; } h2 .heading-copy>span { font-size:11px; margin-left:8px; } }
     @media(prefers-reduced-motion:reduce) { .section-icon { transition:none; } h2:hover .section-icon { transform:none; } }
+
+    .profile .personal-meta { margin:10px 0 0; color:var(--muted); font-size:12px; line-height:1.8; }
+    .project-work { margin:9px 0 0; font-size:13px; line-height:1.8; color:var(--ink); }
+    @media(max-width:570px) { .project-work { grid-column:2; margin-top:5px; font-size:12px; } .profile .personal-meta { margin-top:5px; font-size:11px; } }
   </style>
 </head>
 <body>
@@ -208,6 +212,7 @@
       <h1>茅谨怡<span class="english-name">Jinyi Mao</span></h1>
       <p class="affiliation">南京大学 · Nanjing University</p>
       <p class="detail" data-en="School of Management and Engineering&lt;br&gt;Master’s student · Industrial Engineering and Management">工程管理学院<br>工业工程与管理 · 硕士研究生</p>
+      <p class="personal-meta" data-en="Nanjing, Jiangsu · Born Sep 2002">江苏南京 · 2002.09 生</p>
       <p class="focus" data-en="Research interests&lt;br&gt;LLM Agents · Retrieval-Augmented Generation&lt;br&gt;Multisource Spatiotemporal Modeling · Intelligent Transportation">研究方向<br>大模型 Agent · 检索增强生成<br>多源时空建模 · 交通智能</p>
       <a class="email" href="mailto:mjy0209@126.com">mjy0209@126.com</a>
     </aside>
@@ -249,7 +254,7 @@
       <section id="industry" aria-labelledby="industry-title">
 <h2 id="industry-title"><img class="section-icon" src="assets/icons/industry.svg" alt="" aria-hidden="true" width="44" height="44"><span class="heading-copy" data-en="University–Industry Projects">校企项目 <span>University–Industry Projects</span></span></h2>
 <p class="section-intro" data-en="Participated in projects involving State Grid, CHN Energy’s Ningxia branch, and SPIC’s Hebei / Xiong’an company.">参与国家电网、国家能源集团宁夏分公司及国家电投河北公司（雄安公司）的相关项目。</p>
-<div class="industry-grid"><article class="industry-item"><a class="industry-logo" href="https://www.sgcc.com.cn/" target="_blank" rel="noopener noreferrer" aria-label="State Grid Corporation of China"><img class="brand-logo " src="assets/logos/sgcc.svg" alt="国家电网 · State Grid Corporation of China" loading="lazy"></a><h3>国家电网</h3><p class="org-english">State Grid Corporation of China</p><span class="participation" data-en="Project participant">项目参与</span></article><article class="industry-item"><a class="industry-logo" href="https://www.ceic.com/" target="_blank" rel="noopener noreferrer" aria-label="CHN Energy · Ningxia Branch"><img class="brand-logo " src="assets/logos/ceic.svg" alt="国家能源集团宁夏分公司 · CHN Energy · Ningxia Branch" loading="lazy"></a><h3>国家能源集团宁夏分公司</h3><p class="org-english">CHN Energy · Ningxia Branch</p><span class="participation" data-en="Project participant">项目参与</span></article><article class="industry-item"><a class="industry-logo" href="https://www.spic.com.cn/" target="_blank" rel="noopener noreferrer" aria-label="SPIC · Hebei / Xiong’an Company"><img class="brand-logo " src="assets/logos/spic.png" alt="国家电投河北公司（雄安公司） · SPIC · Hebei / Xiong’an Company" loading="lazy"></a><h3>国家电投河北公司（雄安公司）</h3><p class="org-english">SPIC · Hebei / Xiong’an Company</p><span class="participation" data-en="Project participant">项目参与</span></article></div></section>
+<div class="industry-grid"><article class="industry-item"><a class="industry-logo" href="https://www.sgcc.com.cn/" target="_blank" rel="noopener noreferrer" aria-label="State Grid Corporation of China"><img class="brand-logo " src="assets/logos/sgcc.svg" alt="国家电网 · State Grid Corporation of China" loading="lazy"></a><h3>国家电网</h3><p class="org-english">State Grid Corporation of China</p><p class="project-work" data-en="Responsible for drafting one research paper and one patent application.">负责 1 篇论文及 1 项专利的撰写。</p></article><article class="industry-item"><a class="industry-logo" href="https://www.ceic.com/" target="_blank" rel="noopener noreferrer" aria-label="CHN Energy · Ningxia Branch"><img class="brand-logo " src="assets/logos/ceic.svg" alt="国家能源集团宁夏分公司 · CHN Energy · Ningxia Branch" loading="lazy"></a><h3>国家能源集团宁夏分公司</h3><p class="org-english">CHN Energy · Ningxia Branch</p><p class="project-work" data-en="Built a weather forecasting agent.">搭建气象预测 Agent。</p></article><article class="industry-item"><a class="industry-logo" href="https://www.spic.com.cn/" target="_blank" rel="noopener noreferrer" aria-label="SPIC · Hebei / Xiong’an Company"><img class="brand-logo " src="assets/logos/spic.png" alt="国家电投河北公司（雄安公司） · SPIC · Hebei / Xiong’an Company" loading="lazy"></a><h3>国家电投河北公司（雄安公司）</h3><p class="org-english">SPIC · Hebei / Xiong’an Company</p><p class="project-work" data-en="Developing a document compliance review agent (ongoing).">搭建文件合规审查 Agent（在研）。</p></article></div></section>
       <section id="projects" aria-labelledby="projects-title">
         <h2 id="projects-title"><img class="section-icon" src="assets/icons/projects.svg" alt="" aria-hidden="true" width="44" height="44"><span class="heading-copy" data-en="Selected Projects">大模型应用项目 <span>Selected Projects</span></span></h2>
         <article class="entry demo">
