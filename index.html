@@ -4,8 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="茅谨怡 Jinyi Mao">
-  <meta name="description" content="茅谨怡，南京大学硕士研究生。大模型 Agent、检索增强生成与交通智能研究，项目演示、科研论文、教育背景及获奖经历。">
-  <title>茅谨怡 Jinyi Mao · 个人主页</title>
+  <meta name="description" content="Jinyi Mao — AI Agents &amp; Research.">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/projects.svg">
+  <title>Jinyi Mao</title>
   <style>
     :root { --ink:#243247; --muted:#64748b; --blue:#1764a4; --line:#e4e9ef; --soft:#f6f8fb; }
     * { box-sizing:border-box; }
@@ -177,6 +178,15 @@
       .industry-item h3 { font-size:13px; } .org-english { margin-bottom:4px; }
       .participation { grid-column:2; } section { margin-bottom:35px; }
     }
+
+    /* Soft illustrated chapter markers. */
+    h2 { display:flex; align-items:center; gap:12px; min-height:58px; padding-bottom:13px; }
+    .section-icon { display:block; width:44px; height:44px; flex:0 0 44px; filter:drop-shadow(0 2px 1px #34455e0b); transition:transform .2s ease; }
+    h2:hover .section-icon { transform:translateY(-2px) rotate(-4deg); }
+    h2 .heading-copy { display:block; margin:0; color:var(--ink); font:inherit; line-height:1.4; }
+    h2 .heading-copy>span { display:inline-block; font-size:13px; line-height:1.5; margin-left:10px; color:var(--muted); font-weight:400; }
+    @media(max-width:570px) { h2 { gap:10px; } .section-icon { width:39px; height:39px; flex-basis:39px; } h2 .heading-copy { font-size:20px; } h2 .heading-copy>span { font-size:11px; margin-left:8px; } }
+    @media(prefers-reduced-motion:reduce) { .section-icon { transition:none; } h2:hover .section-icon { transform:none; } }
   </style>
 </head>
 <body>
@@ -199,18 +209,18 @@
       <img class="portrait" src="assets/portrait.jpg" alt="茅谨怡的个人照片" data-en-alt="Portrait of Jinyi Mao" width="196" height="196">
       <h1>茅谨怡<span class="english-name">Jinyi Mao</span></h1>
       <p class="affiliation">南京大学 · Nanjing University</p>
-      <p class="detail" data-en="School of Management and Engineering&lt;br&gt;Master’s student · Industrial Engineering and Management">管理工程学院<br>工业工程与管理 · 硕士研究生</p>
+      <p class="detail" data-en="School of Management and Engineering&lt;br&gt;Master’s student · Industrial Engineering and Management">工程管理学院<br>工业工程与管理 · 硕士研究生</p>
       <p class="focus" data-en="Research interests&lt;br&gt;LLM Agents · Retrieval-Augmented Generation&lt;br&gt;Multisource Spatiotemporal Modeling · Intelligent Transportation">研究方向<br>大模型 Agent · 检索增强生成<br>多源时空建模 · 交通智能</p>
       <a class="email" href="mailto:mjy0209@126.com">mjy0209@126.com</a>
     </aside>
     <div class="content-column">
       <section class="about" id="about" aria-labelledby="about-title">
-        <h2 id="about-title" data-en="About Me">关于我 <span>About Me</span></h2>
+        <h2 id="about-title"><img class="section-icon" src="assets/icons/about.svg" alt="" aria-hidden="true" width="44" height="44"><span class="heading-copy" data-en="About Me">关于我 <span>About Me</span></span></h2>
         <p data-en="Hello, I’m &lt;strong&gt;Jinyi Mao&lt;/strong&gt;, a master’s student in Industrial Engineering and Management at Nanjing University, expecting to graduate in June 2028. I earned my bachelor’s degree in Intelligent Manufacturing Engineering at Yangzhou University, ranking first in my major and receiving recommended admission to graduate study.">你好，我是<strong>茅谨怡</strong>，目前在南京大学攻读工业工程与管理专业硕士学位，预计于 2028 年 6 月毕业。本科就读于扬州大学智能制造工程专业，以专业第一的成绩获得推免资格。</p>
         <p data-en="My interests lie in &lt;strong&gt;LLM agents, retrieval-augmented generation and multisource spatiotemporal modeling&lt;/strong&gt;, connecting algorithmic research with interactive applications. My work spans in-vehicle voice agents, source-grounded question answering, traffic risk prediction, signal timing estimation and flight data modeling.">我关注<strong>大模型 Agent、检索增强生成与多源时空建模</strong>，希望将算法研究与可交互的应用结合起来。目前的工作包括车载多轮语音 Agent、可溯源问答系统，以及交通风险预测、信号配时估计和飞行数据建模。</p>
       </section>
       <section id="projects" aria-labelledby="projects-title">
-        <h2 id="projects-title" data-en="Selected Projects">大模型应用项目 <span>Selected Projects</span></h2>
+        <h2 id="projects-title"><img class="section-icon" src="assets/icons/projects.svg" alt="" aria-hidden="true" width="44" height="44"><span class="heading-copy" data-en="Selected Projects">大模型应用项目 <span>Selected Projects</span></span></h2>
         <article class="entry demo">
           <figure style="margin:0">
             <button class="visual" data-image="assets/voice-demo.webp" data-caption="行知 · 多轮语音 Agent 实际演示界面" data-en-data-caption="Xingzhi · Conversational Voice Agent demo" aria-label="放大行知语音 Agent 演示截图" data-en-aria-label="Enlarge the voice agent screenshot"><img src="assets/voice-demo.webp" alt="行知模拟座舱，展示打开空调后的车辆状态和对话反馈" data-en-alt="Simulated cockpit showing vehicle status and dialogue after turning on the air conditioning" width="1200" height="675"></button>
@@ -237,7 +247,7 @@
         </article>
       </section>
       <section id="publications" aria-labelledby="publications-title">
-        <h2 id="publications-title" data-en="Publications">已发表论文 <span>Publications</span></h2>
+        <h2 id="publications-title"><img class="section-icon" src="assets/icons/publications.svg" alt="" aria-hidden="true" width="44" height="44"><span class="heading-copy" data-en="Publications">已发表论文 <span>Publications</span></span></h2>
         <article class="entry">
           <figure style="margin:0">
             <button class="visual" data-image="assets/flight-fusion.png" data-caption="双层动态融合神经网络 · 论文 Fig. 5" data-en-data-caption="Two-layer dynamic fusion network · Fig. 5" aria-label="放大飞行参数预测论文方法图" data-en-aria-label="Enlarge the flight forecasting method figure"><img src="assets/flight-fusion.png" alt="LSTM、Transformer、TCN 经特征层和预测层融合的双层神经网络" data-en-alt="LSTM, Transformer and TCN fusion at feature and prediction levels" width="1400" height="800" loading="lazy"></button>
@@ -266,7 +276,7 @@
         </article>
       </section>
       <section id="under-review" aria-labelledby="review-title">
-        <h2 id="review-title" data-en="Under Review">在投论文 <span>Under Review</span></h2>
+        <h2 id="review-title"><img class="section-icon" src="assets/icons/review.svg" alt="" aria-hidden="true" width="44" height="44"><span class="heading-copy" data-en="Under Review">在投论文 <span>Under Review</span></span></h2>
         <article class="submission">
           <h3>Probabilistic modeling of traffic accident risk under context-dependent distributional heterogeneity: A hurdle mixture-of-distribution-experts approach</h3>
           <p data-en="Under review · Transportation Research Part B: Methodological">在投 · Transportation Research Part B: Methodological</p>
@@ -277,24 +287,24 @@
         </article>
       </section>
       <section id="education" aria-labelledby="education-title">
-<h2 id="education-title" data-en="Education">教育背景 <span>Education</span></h2>
+<h2 id="education-title"><img class="section-icon" src="assets/icons/education.svg" alt="" aria-hidden="true" width="44" height="44"><span class="heading-copy" data-en="Education">教育背景 <span>Education</span></span></h2>
 <div class="institution-row">
  <a class="brand-box" href="https://www.nju.edu.cn/" target="_blank" rel="noopener noreferrer" aria-label="Nanjing University"><img class="brand-logo " src="assets/logos/nju.png" alt="南京大学 · Nanjing University" loading="lazy"></a>
  <div class="institution-copy"><div class="institution-heading"><h3>南京大学 <span>Nanjing University</span></h3><span class="date" data-en="Sep 2025 — Present">2025.09 — 至今</span></div>
  <p data-en="Master’s student in Industrial Engineering and Management · Recommended admission">工业工程与管理 · 硕士研究生（推免）</p>
- <p class="secondary" data-en="School of Management and Engineering · Expected Jun 2028 · Top 5%">管理工程学院 · 预计 2028.06 毕业 · 专业排名前 5%</p>
+ <p class="secondary" data-en="School of Management and Engineering · Expected Jun 2028 · Top 5%">工程管理学院 · 预计 2028.06 毕业 · 专业排名前 5%</p>
  </div>
 </div>
 <div class="institution-row">
  <a class="brand-box" href="https://www.yzu.edu.cn/" target="_blank" rel="noopener noreferrer" aria-label="Yangzhou University"><img class="brand-logo seal" src="assets/logos/yzu.png" alt="扬州大学 · Yangzhou University" loading="lazy"></a>
  <div class="institution-copy"><div class="institution-heading"><h3>扬州大学 <span>Yangzhou University</span></h3><span class="date" data-en="Sep 2021 — Jun 2025">2021.09 — 2025.06</span></div>
  <p data-en="Bachelor’s degree in Intelligent Manufacturing Engineering">智能制造工程 · 本科</p>
- <p class="secondary" data-en="Ranked 1st out of 79 students">专业排名 1 / 79</p>
+ <p class="secondary" data-en="School of Mechanical Engineering · Ranked 1st out of 79 students">机械工程学院 · 专业排名 1 / 79</p>
  </div>
 </div>
 </section>
 <section id="experience" aria-labelledby="experience-title">
-<h2 id="experience-title" data-en="Experience">实习经历 <span>Experience</span></h2>
+<h2 id="experience-title"><img class="section-icon" src="assets/icons/experience.svg" alt="" aria-hidden="true" width="44" height="44"><span class="heading-copy" data-en="Experience">实习经历 <span>Experience</span></span></h2>
 <div class="institution-row internship-row">
  <div class="brand-stack"><a class="brand-box" href="https://www.tencent.com/" target="_blank" rel="noopener noreferrer" aria-label="Tencent"><img class="brand-logo " src="assets/logos/tencent.png" alt="腾讯 · Tencent" loading="lazy"></a>
  <a class="game-brand" href="https://monsterhunteroutlanders.com/" target="_blank" rel="noopener noreferrer" aria-label="Monster Hunter Outlanders"><img class="brand-logo game-logo" src="assets/logos/mho.png" alt="怪物猎人：旅人 · Monster Hunter Outlanders" loading="lazy"></a></div>
@@ -306,11 +316,11 @@
 </div>
 </section>
 <section id="industry" aria-labelledby="industry-title">
-<h2 id="industry-title" data-en="Industry Projects">企业项目经历 <span>Industry Projects</span></h2>
+<h2 id="industry-title"><img class="section-icon" src="assets/icons/industry.svg" alt="" aria-hidden="true" width="44" height="44"><span class="heading-copy" data-en="Industry Projects">企业项目经历 <span>Industry Projects</span></span></h2>
 <p class="section-intro" data-en="Participated in projects involving State Grid, CHN Energy’s Ningxia branch, and SPIC’s Hebei / Xiong’an company.">参与国家电网、国家能源集团宁夏分公司及国家电投河北公司（雄安公司）的相关项目。</p>
 <div class="industry-grid"><article class="industry-item"><a class="industry-logo" href="https://www.sgcc.com.cn/" target="_blank" rel="noopener noreferrer" aria-label="State Grid Corporation of China"><img class="brand-logo " src="assets/logos/sgcc.svg" alt="国家电网 · State Grid Corporation of China" loading="lazy"></a><h3>国家电网</h3><p class="org-english">State Grid Corporation of China</p><span class="participation" data-en="Project participant">项目参与</span></article><article class="industry-item"><a class="industry-logo" href="https://www.ceic.com/" target="_blank" rel="noopener noreferrer" aria-label="CHN Energy · Ningxia Branch"><img class="brand-logo " src="assets/logos/ceic.svg" alt="国家能源集团宁夏分公司 · CHN Energy · Ningxia Branch" loading="lazy"></a><h3>国家能源集团宁夏分公司</h3><p class="org-english">CHN Energy · Ningxia Branch</p><span class="participation" data-en="Project participant">项目参与</span></article><article class="industry-item"><a class="industry-logo" href="https://www.spic.com.cn/" target="_blank" rel="noopener noreferrer" aria-label="SPIC · Hebei / Xiong’an Company"><img class="brand-logo " src="assets/logos/spic.png" alt="国家电投河北公司（雄安公司） · SPIC · Hebei / Xiong’an Company" loading="lazy"></a><h3>国家电投河北公司（雄安公司）</h3><p class="org-english">SPIC · Hebei / Xiong’an Company</p><span class="participation" data-en="Project participant">项目参与</span></article></div></section>
       <section id="awards" aria-labelledby="awards-title">
-        <h2 id="awards-title" data-en="Awards &amp;amp; Honors">获奖与荣誉 <span>Awards &amp; Honors</span></h2>
+        <h2 id="awards-title"><img class="section-icon" src="assets/icons/awards.svg" alt="" aria-hidden="true" width="44" height="44"><span class="heading-copy" data-en="Awards &amp;amp; Honors">获奖与荣誉 <span>Awards &amp; Honors</span></span></h2>
         <ul class="awards">
           <li data-en="&lt;strong&gt;National Scholarship&lt;/strong&gt; · Undergraduate and graduate studies"><strong>国家奖学金</strong>（本科及硕士阶段）</li>
           <li data-en="&lt;strong&gt;First-Class Academic Scholarship&lt;/strong&gt; · Nanjing University, twice"><strong>一等学业奖学金</strong>（南京大学，2 次）</li>
@@ -340,7 +350,7 @@
     function setLanguage(language) {
       const en = language === 'en';
       document.documentElement.lang = en ? 'en' : 'zh-CN';
-      document.title = en ? 'Jinyi Mao · Academic Homepage' : '茅谨怡 Jinyi Mao · 个人主页';
+      document.title = 'Jinyi Mao';
       translatedNodes.forEach(node => { node.innerHTML = en ? node.dataset.en : node.dataset.zh; });
       translatedAttributes.forEach(attr => {
         document.querySelectorAll(`[data-en-${attr}]`).forEach(node => {
